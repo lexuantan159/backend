@@ -22,6 +22,9 @@ CREATE TABLE products (
   quantity INTEGER DEFAULT 0
 );
 
+
+
+
 # Insert Test records
 INSERT INTO products (name, price, quantity) VALUES
   ('Laptop', 999.99, 10),
