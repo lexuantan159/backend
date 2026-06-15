@@ -85,7 +85,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             echo "Pull code mới nhất"
-            cd /path/to/backend
+            cd ${{ secrets.SSH_PATH }}
 
             git pull origin main
 
