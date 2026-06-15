@@ -85,13 +85,14 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             echo "Pull code mới nhất"
-            cd ${{ secrets.SSH_PATH }}
+            cd /path/to/backend
+
             git pull origin main
 
             echo "Cài dependencies"
             npm ci
 
-            echo "Khởi động lại app"
-            pkill -f "node src/server.js" || true
-            nohup npm start > app.log 2>&1 &
+            echo "Restart app"
+            pm2 restart backend || pm2 start src/server.js --name backend
+
             echo "Deploy thành công!"
